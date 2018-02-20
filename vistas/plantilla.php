@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 session_start();
 
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -37,11 +37,16 @@ session_start();
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+  <!-- DataTables -->
+  <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
+  <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
+
 
   <!--=====================================
   =            PUGINS DE JAVASCRIPT            =
   ======================================-->
-  
+
   <!-- jQuery 3 -->
   <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
@@ -55,83 +60,93 @@ session_start();
   <!-- AdminLTE for demo purposes -->
   <script src="vistas/dist/js/demo.js"></script>
 
+  <!-- DataTables -->
+<script src="vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+<script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
+<script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
+
+<!--Sweetalert 2-->
+<script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+
 
 </head>
 
 <!--=====================================
   =            sidebar-collapse hace que el sidebar disminuya de tamano            =
   ======================================-->
-  
+
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
 
 
   <?php
 
-  if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] =="ok") {
+if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
 
+    echo '<div class="wrapper">';
 
-  echo '<div class="wrapper">';
+    /*=============================================
+    =            CABEZOTE            =
+    =============================================*/
 
+    include "modulos/cabezote.php";
 
-  /*=============================================
-  =            CABEZOTE            =
-  =============================================*/
+    /*=============================================
+    =            MENU            =
+    =============================================*/
 
-  include "modulos/cabezote.php";
+    include "modulos/menu.php";
 
-  /*=============================================
-  =            MENU            =
-  =============================================*/
+    /*=============================================
+    =            CONTENIDO Pagina Principal            =
+    =============================================*/
 
-  include "modulos/menu.php";
+    if (isset($_GET["ruta"])) {
 
-   /*=============================================
-  =            CONTENIDO Pagina Principal            =
-  =============================================*/
+        if ($_GET["ruta"] == "inicio" ||
+            $_GET["ruta"] == "usuarios" ||
+            $_GET["ruta"] == "categorias" ||
+            $_GET["ruta"] == "productos" ||
+            $_GET["ruta"] == "clientes" ||
+            $_GET["ruta"] == "ventas" ||
+            $_GET["ruta"] == "crear-venta" ||
+            $_GET["ruta"] == "reportes" ||
+            $_GET["ruta"] == "salir") {
 
-  if(isset($_GET["ruta"])){
-
-    if ($_GET["ruta"] == "inicio" ||
-        $_GET["ruta"] == "usuarios" ||
-        $_GET["ruta"] == "categorias" ||
-        $_GET["ruta"] == "productos" ||
-        $_GET["ruta"] == "clientes" ||
-        $_GET["ruta"] == "ventas" ||
-        $_GET["ruta"] == "crear-venta" ||
-        $_GET["ruta"] == "reportes" ||
-        $_GET["ruta"] == "salir") {
-
-      include "modulos/".$_GET["ruta"].".php";
-    }else{
-      include "modulos/404.php";
+            include "modulos/" . $_GET["ruta"] . ".php";
+        } else {
+            include "modulos/404.php";
+        }
+    } else {
+        include "modulos/inicio.php";
     }
-  }else{
-    include "modulos/inicio.php";
-  }
 
-  
-  /*=============================================
-  =            FOOTER            =
-  =============================================*/
+    /*=============================================
+    =            FOOTER            =
+    =============================================*/
 
-  include "modulos/footer.php";
+    include "modulos/footer.php";
 
-  echo '</div>';
+    echo '</div>';
 
-} else{
+} else {
 
-  include "modulos/login.php";
+    include "modulos/login.php";
 
 }
 
+?>
 
-   ?>
-  
 
 </div>
 <!-- ./wrapper -->
 
 <script src="vistas/js/plantilla.js"></script>
+
+<script src="vistas/js/usuarios.js"></script>
 
 </body>
 </html>
