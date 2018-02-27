@@ -13,7 +13,7 @@
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Administrar usuarios</li>
+      <li class="active">Administrar Usuarios</li>
 
     </ol>
 
@@ -27,7 +27,7 @@
 
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuario">
 
-          Agregar usuario
+          Agregar Usuario
 
         </button>
 
@@ -66,7 +66,7 @@ $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
 foreach ($usuarios as $key => $value) {
 
     echo ' <tr>
-                  <td>' . $value["id"] . '</td>
+                  <td>' . ($key + 1) . '</td>
                   <td>' . $value["nombre"] . '</td>
                   <td>' . $value["usuario"] . '</td>';
 
@@ -162,7 +162,7 @@ MODAL AGREGAR USUARIO
 
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
+                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Nombre Completo" required>
 
               </div>
 
@@ -176,7 +176,7 @@ MODAL AGREGAR USUARIO
 
                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar usuario" id="nuevoUsuario" required>
+                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Nombre Usuario" id="nuevoUsuario" required>
 
               </div>
 
@@ -393,7 +393,7 @@ MODAL EDITAR USUARIO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Modificar usuario</button>
+          <button type="submit" class="btn btn-primary">Modificar Usuario</button>
 
         </div>
 

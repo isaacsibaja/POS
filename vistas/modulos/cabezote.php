@@ -1,30 +1,30 @@
 <header class="main-header">
 
-	<!--=====================================
-	=            LOGOTIPO            =
-	======================================-->
-	
+  <!--=====================================
+  =            LOGOTIPO            =
+  ======================================-->
+
     <a href="inicio" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">
-      	
-      	<img src="vistas/img/plantilla/icono-blanco.png" class="img-responsive" style="padding: 10px">
+
+        <img src="vistas/img/plantilla/icono-blanco.png" class="img-responsive" style="padding: 10px">
 
       </span>
 
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">
-      	
-      	<img src="vistas/img/plantilla/logo-blanco-lineal.png" class="img-responsive" style="padding: 10px 0px">
+
+        <img src="vistas/img/plantilla/logo-blanco-lineal.png" class="img-responsive" style="padding: 10px 0px">
 
       </span>
     </a>
 
-	<!--=====================================
-	=            BARRA DE NAVEGACION            =
-	======================================-->
+  <!--=====================================
+  =            BARRA DE NAVEGACION            =
+  ======================================-->
 
-	<nav class="navbar navbar-static-top">
+  <nav class="navbar navbar-static-top">
       <!--Sidebar toggle button (boton de navegacion)-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
 
@@ -34,56 +34,56 @@
       <!-- perfil de usuario-->
 
       <div class="navbar-custom-menu">
-      	
-      	<ul class="nav navbar-nav">
 
-      		<li class="dropdown user user-menu">
+        <ul class="nav navbar-nav">
 
-      			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <li class="dropdown user user-menu">
 
-              <?php 
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-              if ($_SESSION["foto"] != "") {
+              <?php
 
-                echo '<img src="'.$_SESSION["foto"].'" class="user-image">';
+if ($_SESSION["foto"] != "") {
 
-              }else{
+    echo '<img src="' . $_SESSION["foto"] . '" class="user-image">';
 
-                echo '<img src="vistas/img/usuarios/default/anonymous.png" class="user-image">';
+} else {
 
-              }
+    echo '<img src="vistas/img/usuarios/default/anonymous.png" class="user-image">';
 
-               ?>
+}
 
-      				<span class="hidden-xs">Bienvenido (a): <?php echo $_SESSION["nombre"]; ?></span>
-      				
-      			</a>
-      			<!--Dropdawn del perfil de usuario-->
+?>
 
-			      <ul class="dropdown-menu">
-			      	
-			      	<li class="user-body">
+              <span class="hidden-xs">Bienvenido (a): <?php echo $_SESSION["nombre"]; ?></span>
 
-			      		<div class="pull-right">
+            </a>
+            <!--Dropdawn del perfil de usuario-->
 
-			      			<a href="salir" class="btn btn-default btn-flat">Salir</a>
-			      			
-			      		</div>
-			      		
-			      	</li>
+            <ul class="dropdown-menu">
 
-			      </ul>
-      
-      		</li>
-      	</ul>
+              <li class="user-body">
+
+                <div class="pull-right">
+
+                  <a href="salir" class="btn btn-default btn-flat">Salir</a>
+
+                </div>
+
+              </li>
+
+            </ul>
+
+          </li>
+        </ul>
 
       </div>
 
-      
+
 
 
     </nav>
 
-	
+
 </header>
 
