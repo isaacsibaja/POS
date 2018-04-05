@@ -6,6 +6,7 @@
 
       <h1>
         Administrar Categorías
+
         <small>Todas las categorías</small>
 
       </h1>
@@ -64,8 +65,8 @@ $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 //var_dump($categorias);
 
 foreach ($categorias as $key => $value) {
-    echo '<tr>
 
+    echo '<tr>
                 <td>' . ($key + 1) . '</td>
 
                 <td class="text-uppercase">' . $value["categoria"] . '</td>

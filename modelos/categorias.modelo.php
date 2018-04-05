@@ -77,6 +77,7 @@ class ModeloCategorias
         $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria WHERE id = :id");
 
         $stmt->bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
+
         $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
 
         if ($stmt->execute()) {
@@ -90,6 +91,7 @@ class ModeloCategorias
         }
 
         $stmt->close();
+
         $stmt = null;
 
     }

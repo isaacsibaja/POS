@@ -67,7 +67,6 @@ class ControladorCategorias
 
 					});
 
-
 				</script>';
 
                 }
@@ -92,7 +91,6 @@ class ControladorCategorias
 						}
 
 					});
-
 
 				</script>';
 
