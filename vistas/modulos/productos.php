@@ -4,7 +4,7 @@
 
     <h1>
 
-      Administrar productos
+      Administrar Productos
 
       <small>Todos los productos</small>
 
@@ -14,7 +14,7 @@
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Administrar productos</li>
+      <li class="active">Administrar Productos</li>
 
     </ol>
 
@@ -28,7 +28,7 @@
 
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">
 
-          Agregar producto
+          Agregar Producto
 
         </button>
 
@@ -69,6 +69,8 @@
 
 </div>
 
+
+
 <!--=====================================
 MODAL AGREGAR PRODUCTO
 ======================================-->
@@ -89,7 +91,7 @@ MODAL AGREGAR PRODUCTO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar producto</h4>
+          <h4 class="modal-title">Agregar Producto</h4>
 
         </div>
 
@@ -112,7 +114,7 @@ MODAL AGREGAR PRODUCTO
 
                 <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
 
-                  <option value="">Selecionar categoría</option>
+                  <option value="">Selecionar Categoría</option>
 
                   <?php
 
@@ -215,7 +217,7 @@ foreach ($categorias as $key => $value) {
                       <label>
 
                         <input type="checkbox" class="minimal porcentaje" checked>
-                        Utilizar procentaje
+                        Utilizar Porcentaje
                       </label>
 
                     </div>
@@ -266,7 +268,7 @@ foreach ($categorias as $key => $value) {
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar producto</button>
+          <button type="submit" class="btn btn-primary">Guardar Producto</button>
 
         </div>
 
@@ -305,7 +307,7 @@ MODAL EDITAR PRODUCTO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar producto</h4>
+          <h4 class="modal-title">Editar Producto</h4>
 
         </div>
 
@@ -417,7 +419,7 @@ MODAL EDITAR PRODUCTO
                       <label>
 
                         <input type="checkbox" class="minimal porcentaje" checked>
-                        Utilizar procentaje
+                        Utilizar Porcentaje
                       </label>
 
                     </div>
@@ -470,7 +472,7 @@ MODAL EDITAR PRODUCTO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
 
         </div>
 

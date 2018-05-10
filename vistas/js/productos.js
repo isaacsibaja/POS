@@ -191,6 +191,7 @@ $("#nuevaCategoria").change(function(){
 /*=============================================
 AGREGANDO PRECIO DE VENTA
 =============================================*/
+// # se representan los id de productos.php
 $("#nuevoPrecioCompra, #editarPrecioCompra").change(function(){
 
     if($(".porcentaje").prop("checked")){
@@ -390,6 +391,8 @@ $(".tablaProductos tbody").on("click", "button.btnEliminarProducto", function(){
         confirmButtonText: 'Si, borrar producto!'
         }).then(function(result){
         if (result.value) {
+
+          //enviamos pagina de productos variables get, para obtener imagen y codigo
 
             window.location = "index.php?ruta=productos&idProducto="+idProducto+"&imagen="+imagen+"&codigo="+codigo;
 

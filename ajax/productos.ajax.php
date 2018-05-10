@@ -32,16 +32,43 @@ class AjaxProductos
 
     public $idProducto;
 
+    public $traerProductos;
+
+    public $nombreProducto;
+
     public function ajaxEditarProducto()
     {
-        //recibe el id producto
 
-        $item  = "id";
-        $valor = $this->idProducto;
+        if ($this->traerProductos == "ok") {
+            //dejamos item y valor null para que los traiga todos
 
-        $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+            $item  = null;
+            $valor = null;
 
-        echo json_encode($respuesta);
+            $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+
+            echo json_encode($respuesta);
+
+        } else if ($this->nombreProducto != "") {
+
+            $item  = "descripcion";
+            $valor = $this->nombreProducto;
+
+            $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+
+            echo json_encode($respuesta);
+
+        } else {
+
+            //recibe el id producto
+            $item  = "id";
+            $valor = $this->idProducto;
+
+            $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+
+            echo json_encode($respuesta);
+
+        }
 
     }
 
@@ -68,5 +95,32 @@ if (isset($_POST["idProducto"])) {
     $editarProducto             = new AjaxProductos();
     $editarProducto->idProducto = $_POST["idProducto"];
     $editarProducto->ajaxEditarProducto();
+
+}
+
+/*=============================================
+TRAER PRODUCTOS
+trae todos los productos lo agregamos en AGREGANDO PRODUCTOS DESDE EL BOTON PARA DISPOSITIVOS ventas.js
+=============================================*/
+//si viene una variable post
+
+if (isset($_POST["traerProductos"])) {
+
+    $traerProductos                 = new AjaxProductos();
+    $traerProductos->traerProductos = $_POST["traerProductos"];
+    $traerProductos->ajaxEditarProducto();
+
+}
+
+/*=============================================
+TRAER NOMBRE PRODUCTO
+=============================================*/
+//si viene una variable post
+
+if (isset($_POST["nombreProducto"])) {
+
+    $traerProductos                 = new AjaxProductos();
+    $traerProductos->nombreProducto = $_POST["nombreProducto"];
+    $traerProductos->ajaxEditarProducto();
 
 }

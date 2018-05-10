@@ -82,6 +82,15 @@ session_start();
 <!-- iCheck 1.0.1 -->
 <script src="vistas/plugins/iCheck/icheck.min.js"></script>
 
+<!-- InputMask -->
+<script src="vistas/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="vistas/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="vistas/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
+
+<!-- JQuery Number-->
+<script src="vistas/plugins/jqueryNumber/jquerynumber.min.js"></script>
+
 
 </head>
 
@@ -161,6 +170,10 @@ if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
 <script src="vistas/js/categorias.js"></script>
 
 <script src="vistas/js/productos.js"></script>
+
+<script src="vistas/js/clientes.js"></script>
+
+<script src="vistas/js/ventas.js"></script>
 
 
 </body>

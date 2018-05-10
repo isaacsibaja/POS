@@ -47,7 +47,6 @@
               <tr>
 
                 <th style="width: 10px">#</th>
-
                 <th>Categoría</th>
                 <th>Acciones</th>
 
@@ -58,6 +57,7 @@
             <tbody>
 
               <?php
+
 $item  = null;
 $valor = null;
 

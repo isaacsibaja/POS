@@ -29,7 +29,7 @@
 
             <div class="box-header with-border"></div>
 
-            <form role="form" method="post" class="formularioVenta">
+            <form class="form" method="post">
 
             <div class="box-body">
 
@@ -47,14 +47,7 @@
 
                       <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                      <input type="text" class="form-control" id="nuevoVendedor" name="nuevoVendedor" value="<?php echo $_SESSION["nombre"]; ?>" readonly>
-
-                      <!--====  NECESITAMOS ENVIARLE EL ID DEL VENDEDOR por eso hacemos el input hidden ====-->
-
-                      <input type="hidden"  name="idVendedor" value="<?php echo $_SESSION["id"]; ?>">
-
-
-
+                      <input type="text" class="form-control" id="nuevoVendedor" name="nuevoVendedor" value="Usuario Administrador" readonly>
 
                     </div>
 
@@ -74,30 +67,7 @@
 
                       <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-<?php
-
-$item  = null;
-$valor = null;
-
-$ventas = ControladorVentas::ctrMostrarVentas($item, $valor);
-
-if (!$ventas) {
-    echo '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="0001" readonly>';
-} else {
-
-    foreach ($ventas as $key => $value) {
-        # code...
-    }
-
-    $codigo = $value["codigo"] + 1;
-
-    echo '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="' . $codigo . '" readonly>';
-
-}
-
-?>
-
-
+                      <input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="10002343" readonly>
 
                     </div>
 
@@ -120,21 +90,6 @@ if (!$ventas) {
 
                         <option value="">Seleccionar Cliente</option>
 
-
-
-<?php
-
-$item  = null;
-$valor = null;
-
-$categorias = ControladorClientes::ctrMostrarClientes($item, $valor);
-
-foreach ($categorias as $key => $value) {
-    echo '<option value="' . $value["id"] . '">' . $value["nombre"] . '</option>';
-}
-
-?>
-
                       </select>
 
                       <span class="input-group-addon"> <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#modalAgregarCliente" data-dismiss="modal">Agregar Cliente</button></span>
@@ -155,11 +110,47 @@ foreach ($categorias as $key => $value) {
 
                   <div class="form-group row nuevoProducto">
 
+                    <!-- descripcion del producto -->
 
+
+                    <div class="col-xs-6" style="padding-right: 0px">
+
+                      <div class="input-group">
+
+                        <span class="input-group-addon"> <button type="button" class="btn btn-danger btn-xs"> <i class="fa fa-times"></i></button></span>
+
+                        <input type="text" class="form-control" id="agregarProducto" name="agregarProducto" placeholder="Descripción del producto" required>
+
+                      </div>
+
+                    </div>
+
+                    <!-- cantidad del producto -->
+
+
+                    <div class="col-xs-3">
+
+                      <input type="number" class="form-control" id="nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" placeholder="0" required>
+
+                    </div>
+
+                    <!-- precio del producto -->
+
+
+                    <div class="col-xs-3" style="padding-left: 0px">
+
+                      <div class="input-group">
+
+                        <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
+
+                        <input type="number" class="form-control" id="nuevoPrecioProducto" name="nuevoPrecioProducto" placeholder="0000000" readonly required>
+
+
+                      </div>
+
+                    </div>
 
                   </div>
-
-                  <input type="hidden" id="listaProductos" name="listaProductos">
 
                   <!--====================================================
                   =            BOTON PARA AGREGAR UN PRODUCTO            =
@@ -168,7 +159,7 @@ foreach ($categorias as $key => $value) {
                   <!-- este boton solo para dispositivos pequeños -->
 
 
-                  <button type="button" class="btn btn-default hidden-lg btnAgregarProducto"> Agregar Producto</button>
+                  <button type="button" class="btn btn-default hidden-lg"> Agregar Producto</button>
 
                   <hr>
 
@@ -204,13 +195,7 @@ foreach ($categorias as $key => $value) {
 
                               <div class="input-group">
 
-                                <input type="number" class="form-control input-lg" min="0" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" total="" placeholder="0" required>
-
-                                <input type="hidden" name="nuevoPrecioImpuesto" id="nuevoPrecioImpuesto" required>
-
-                                <input type="hidden" name="nuevoPrecioNeto" id="nuevoPrecioNeto" required>
-
-
+                                <input type="number" class="form-control" min="0" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" placeholder="0" required>
                             <span class="input-group-addon"><i class="fa fa-percent"></i></span>
 
                               </div>
@@ -223,7 +208,7 @@ foreach ($categorias as $key => $value) {
 
                                 <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
 
-                                <input type="text" class="form-control input-lg" min="1" id="nuevoTotalVenta" name="nuevoTotalVenta" placeholder="00000" readonly required>
+                                <input type="number" class="form-control" min="1" id="nuevoTotalVenta" name="nuevoTotalVenta" placeholder="00000" readonly required>
 
                               </div>
 
@@ -257,9 +242,9 @@ foreach ($categorias as $key => $value) {
                         <select class="form-control" id="nuevoMetodoPago" name="nuevoMetodoPago" required>
 
                           <option value="">Seleccione método de pago</option>
-                          <option value="Efectivo">Efectivo</option>
-                          <option value="TC">Tarjeta Crédito</option>
-                          <option value="TD">Tarjeta Débito</option>
+                          <option value="efectivo">Efectivo</option>
+                          <option value="tarjetaCredito">Tarjeta Crédito</option>
+                          <option value="tarjetaDebito">Tarjeta Débito</option>
 
                         </select>
 
@@ -267,7 +252,17 @@ foreach ($categorias as $key => $value) {
 
                     </div>
 
-                    <div class="cajasMetodoPago"></div>
+                    <div class="col-xs-6" style="padding-left: 0px">
+
+                      <div class="input-group">
+
+                        <input type="text" class="form-control" id="nuevoCodigoTransaccion" name="nuevoCodigoTransaccion" placeholder="Código transacción" required>
+
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+
+                      </div>
+
+                    </div>
 
                   </div>
 
@@ -309,7 +304,7 @@ foreach ($categorias as $key => $value) {
 
             <div class="box-body">
 
-              <table class="table table-bordered table-striped dt-responsive tablaVentas">
+              <table class="table table-bordered table-striped dt-responsive tablas">
 
                 <thead>
 
@@ -326,7 +321,27 @@ foreach ($categorias as $key => $value) {
 
                 </thead>
 
+                <tbody>
 
+                  <tr>
+
+                    <td>1</td>
+                    <td><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail" width="40px"></td>
+                    <td>00123</td>
+                    <td>Lorem ipsum</td>
+                    <td>20</td>
+                    <td>
+
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-success"> Agregar</button>
+                      </div>
+
+                    </td>
+
+
+                  </tr>
+
+                </tbody>
 
               </table>
 
@@ -440,7 +455,7 @@ MODAL AGREGAR CLIENTE
 
                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar teléfono" data-inputmask="'mask':'(999) 9999-9999.'" data-mask required>
+                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar teléfono" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
 
               </div>
 

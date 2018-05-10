@@ -177,6 +177,7 @@ class ControladorProductos
 
                 if (isset($_FILES["editarImagen"]["tmp_name"]) && !empty($_FILES["editarImagen"]["tmp_name"])) {
 
+                    //editarImagen viene del name en productos.php
                     list($ancho, $alto) = getimagesize($_FILES["editarImagen"]["tmp_name"]);
 
                     $nuevoAncho = 500;
@@ -309,6 +310,8 @@ class ControladorProductos
     =============================================*/
     public static function ctrEliminarProducto()
     {
+
+        //si viene un idProductos
 
         if (isset($_GET["idProducto"])) {
 
